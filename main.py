@@ -1,3 +1,6 @@
+from user import User
+from functions import *
+
 def main():
     pass
 
