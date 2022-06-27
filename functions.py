@@ -1,3 +1,4 @@
+from math import inf
 from itertools import combinations
 from user import User
 
@@ -31,8 +32,8 @@ def pick_best_combo(combos):
     scores = {}
     for combo in combos:
         scores[combo] = sum([find_distance(pair) for pair in combo])
-    best = (0, 0)
+    best = (0, inf)
     for i in range(len(scores.keys())):
-        if scores[scores.keys()[i]] > best[1]:
+        if scores[scores.keys()[i]] < best[1]:
             best = (i, scores[scores.keys()[i]])
     return best
