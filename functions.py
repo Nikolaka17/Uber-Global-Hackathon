@@ -1,7 +1,8 @@
 from itertools import combinations
+from user import User
 
 def find_distance(pair):
-    pass
+    return
 
 def find_combos(drivers, passengers):
     if len(drivers) != len(passengers):
@@ -25,3 +26,13 @@ def find_combos(drivers, passengers):
     for i in pop_list:
         solutions.pop(i)
     return solutions
+
+def pick_best_combo(combos):
+    scores = {}
+    for combo in combos:
+        scores[combo] = sum([find_distance(pair) for pair in combo])
+    best = (0, 0)
+    for i in range(len(scores.keys())):
+        if scores[scores.keys()[i]] > best[1]:
+            best = (i, scores[scores.keys()[i]])
+    return best
